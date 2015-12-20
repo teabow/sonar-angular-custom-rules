@@ -2,8 +2,8 @@
 
 ## Install
 
-- Build project `with mvn clean install`
-- Copy the generated JAR file in `SONARQUBE_HOME/extensions/plugins/``
+- Build project with `mvn clean install`
+- Copy the generated JAR file in `SONARQUBE_HOME/extensions/plugins/`
 - Restart SonarQube
 
 ## Configure
