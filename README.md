@@ -13,4 +13,8 @@
 
 ## Run
 
-- You can use gulp-sonar to generate SonarQube metrics for your Angular Project
+- You can use [gulp-sonar](https://www.npmjs.com/package/gulp-sonar) to generate SonarQube metrics for your Angular Project
+
+## Rules
+
+- [List of implemented rules](RULES.md)
