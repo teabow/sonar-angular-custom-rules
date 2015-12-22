@@ -61,6 +61,10 @@ public class FileNameCheck extends BaseTreeVisitor implements CharsetAwareVisito
                 && !fileName.contains(AngularUtil.PROVIDER)) {
             context.addFileIssue(this, "Files names should explicitly mention the component type (eg : user-provider.js");
         }
+        else if (AngularUtil.isFilter(file, charset)
+                && !fileName.contains(AngularUtil.FILTER)) {
+            context.addFileIssue(this, "Files names should explicitly mention the component type (eg : user-filter.js");
+        }
 
     }
 }
