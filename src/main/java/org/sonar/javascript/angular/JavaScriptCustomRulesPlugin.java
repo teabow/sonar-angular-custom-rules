@@ -17,9 +17,9 @@ public class JavaScriptCustomRulesPlugin extends SonarPlugin {
 
   @Override
   public List getExtensions() {
-    return ImmutableList.of(
-      JavascriptCustomRulesDefinition.class
-    );
+      return ImmutableList.of(
+              JavascriptCustomRulesDefinition.class
+      );
   }
 
 }
