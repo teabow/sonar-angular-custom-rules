@@ -6,6 +6,7 @@
 package org.sonar.javascript.angular;
 
 
+import org.sonar.javascript.angular.checks.ConstantsUseCheck;
 import org.sonar.javascript.angular.checks.FileNameCheck;
 import org.sonar.javascript.angular.checks.HtmlUseCheck;
 import org.sonar.javascript.angular.checks.JqueryUseCheck;
@@ -41,7 +42,8 @@ public class JavascriptCustomRulesDefinition extends CustomJavaScriptRulesDefini
     return new Class[] {
             HtmlUseCheck.class,
             JqueryUseCheck.class,
-            FileNameCheck.class
+            FileNameCheck.class,
+            ConstantsUseCheck.class
     };
   }
 }
