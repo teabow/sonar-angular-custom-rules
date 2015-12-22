@@ -9,6 +9,9 @@ import java.nio.charset.Charset;
  */
 public class AngularUtil {
 
+    public static final String ROOT_SCOPE = "$rootScope";
+    public static final String SCOPE = "$scope";
+
     public static final String CONTROLLER = "controller";
     public static final String DIRECTIVE = "directive";
     public static final String SERVICE = "service";
@@ -36,5 +39,10 @@ public class AngularUtil {
 
     public static boolean isProvider(File file, Charset charset) {
         return FileUtil.findPattern(file, charset, PATTERN_START + PROVIDER + PATTERN_END);
+    }
+
+    public static boolean isObjectScope(String object) {
+        return ROOT_SCOPE.equals(object)
+                || SCOPE.equals(object);
     }
 }
