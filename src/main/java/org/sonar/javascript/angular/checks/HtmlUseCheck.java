@@ -43,7 +43,7 @@ public class HtmlUseCheck extends BaseTreeVisitor implements CharsetAwareVisitor
     public void visitLiteral(LiteralTree tree) {
 
         if (tree.is(Tree.Kind.STRING_LITERAL)
-                && isForbidden(getContext().getFile())) {
+                && isFileForbidden(getContext().getFile())) {
             Matcher matcher = htmlPattern.matcher(tree.value());
             if (matcher.find()) {
                 getContext().addIssue(this, tree, "Remove HTML templating in controller, create a directive or a template instead");
@@ -52,7 +52,12 @@ public class HtmlUseCheck extends BaseTreeVisitor implements CharsetAwareVisitor
         super.visitLiteral(tree);
     }
 
-    private boolean isForbidden(File file) {
+    /**
+     * Checks if file is forbidden
+     * @param file the file to check
+     * @return true if file is forbidden, false if not
+     */
+    private boolean isFileForbidden(File file) {
         return AngularUtil.isController(file, charset)
                 || AngularUtil.isFactory(file, charset)
                 || AngularUtil.isProvider(file, charset)
