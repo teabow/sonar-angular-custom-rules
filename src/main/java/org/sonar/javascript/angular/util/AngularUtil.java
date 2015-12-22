@@ -13,6 +13,7 @@ public class AngularUtil {
     public static final String DIRECTIVE = "directive";
     public static final String SERVICE = "service";
     public static final String FACTORY = "factory";
+    public static final String FILTER = "filter";
     public static final String PROVIDER = "provider";
 
     private static final String PATTERN_START = "\\.";
@@ -32,6 +33,10 @@ public class AngularUtil {
 
     public static boolean isFactory(File file, Charset charset) {
         return FileUtil.findPattern(file, charset, PATTERN_START + FACTORY + PATTERN_END);
+    }
+
+    public static boolean isFilter(File file, Charset charset) {
+        return FileUtil.findPattern(file, charset, PATTERN_START + FILTER + PATTERN_END);
     }
 
     public static boolean isProvider(File file, Charset charset) {
