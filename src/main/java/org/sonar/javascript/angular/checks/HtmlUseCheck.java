@@ -11,6 +11,7 @@ import org.sonar.plugins.javascript.api.visitors.BaseTreeVisitor;
 import org.sonar.squidbridge.annotations.SqaleConstantRemediation;
 import org.sonar.squidbridge.annotations.SqaleSubCharacteristic;
 
+import java.io.File;
 import java.nio.charset.Charset;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,13 +43,20 @@ public class HtmlUseCheck extends BaseTreeVisitor implements CharsetAwareVisitor
     public void visitLiteral(LiteralTree tree) {
 
         if (tree.is(Tree.Kind.STRING_LITERAL)
-                && AngularUtil.isController(getContext().getFile(), charset)) {
+                && isForbidden(getContext().getFile())) {
             Matcher matcher = htmlPattern.matcher(tree.value());
             if (matcher.find()) {
                 getContext().addIssue(this, tree, "Remove HTML templating in controller, create a directive or a template instead");
             }
         }
         super.visitLiteral(tree);
+    }
+
+    private boolean isForbidden(File file) {
+        return AngularUtil.isController(file, charset)
+                || AngularUtil.isFactory(file, charset)
+                || AngularUtil.isProvider(file, charset)
+                || AngularUtil.isService(file, charset);
     }
 
 }
