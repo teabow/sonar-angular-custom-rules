@@ -60,7 +60,7 @@ public class WrapperServicesCheck extends SubscriptionBaseTreeVisitor {
                 addIssue(tree, MESSAGE);
             }
             else {
-                if (isCalleeInvalid(callExpression)) {
+                if (isCalleeInvalid(callExpression.callee())) {
                     addIssue(tree, MESSAGE);
                 }
             }
@@ -76,8 +76,7 @@ public class WrapperServicesCheck extends SubscriptionBaseTreeVisitor {
         return INVALID_IDENTIFIERS.contains(identifierTree.name());
     }
 
-    private static boolean isCalleeInvalid(CallExpressionTree tree) {
-        ExpressionTree callee = tree.callee();
+    private static boolean isCalleeInvalid(ExpressionTree callee) {
         return callee instanceof IdentifierTree
                 && INVALID_CALLS.contains(((IdentifierTree) callee).name());
     }
