@@ -24,7 +24,7 @@ public class FileUtil {
      * @return true if pattern found in file, false if not
      */
     public static boolean findPattern(File file, Charset charset, String patternString) {
-        List<String> lines = Collections.emptyList();
+        List<String> lines;
 
         try {
             lines = Files.readLines(file, charset);
