@@ -8,7 +8,8 @@
 
 ## Configure
 
-- Create a new Quality Profile which inherits from SonarWay Javascript
+- Install Javascript plugin from Update Center
+- Create a new Quality Profile which inherits from Sonar Way Javascript
 - Activate the custom rules for the new Quality Profile (You can find them in the repository `Custom Repository`)
 
 ## Run
