@@ -43,7 +43,8 @@ public class JavascriptCustomRulesDefinition extends CustomJavaScriptRulesDefini
             ConstantsUseCheck.class,
             InjectionsCheck.class,
             DirectiveNameCheck.class,
-            ControllerNameCheck.class
+            ControllerNameCheck.class,
+            WrapperServicesCheck.class
     };
   }
 }
