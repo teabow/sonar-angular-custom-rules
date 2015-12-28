@@ -1,12 +1,7 @@
-# RULES
-
-## Implemented
+# Rules implemented
 
 - No `jQuery` calls in controllers
 - No HTML in controllers
-
-## Todo
-
 - Files names should explicitly mention the component type (eg : `user-controller.js`)
 - String constants should be defined in a provider
 - `$digest` function should not be called explicitly
